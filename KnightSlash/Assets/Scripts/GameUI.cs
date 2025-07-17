@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using YG;
 
 public class GameUI : MonoBehaviour
@@ -16,6 +17,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI finalCoinText;
     [SerializeField] private TextMeshProUGUI finalWaveText;
+    
+    public Slider musicSlider;
 
     public PlayerHealth playerHealth;
     public string respawnID;
@@ -36,6 +39,10 @@ public class GameUI : MonoBehaviour
         {
             joystick.SetActive(true);
         }
+        
+        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        musicSlider.value = savedVolume;
+        musicSlider.onValueChanged.AddListener(OnVolumeChanged);
     }
 
     void Update()
@@ -109,6 +116,14 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1f;
             playerHealth.Respawn();
             gameOverPanel.SetActive(false);
+        }
+    }
+    
+    void OnVolumeChanged(float volume)
+    {
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.SetVolume(volume);
         }
     }
 }

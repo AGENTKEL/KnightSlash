@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         UpdateHealthUI();
-        playerMovement.DeductActivePlayers();
+        //playerMovement.DeductActivePlayers();
 
         if (audioSource != null && damageClip != null)
         {
@@ -68,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
         gameUI.ShowGameOverUI();
 
         audioSource.PlayOneShot(deathClip);
+        playerMovement.PlayDeathSound();
         music.Stop();
         Time.timeScale = 0f;
     }
@@ -79,5 +80,6 @@ public class PlayerHealth : MonoBehaviour
         music.Play();
         UpdateHealthUI();
         animator.SetBool("Dead", false);
+        playerMovement.PlaySpawnSound();
     }
 }

@@ -12,6 +12,11 @@ public class Projectile : MonoBehaviour
     public AudioClip bombSound;
     private AudioSource audioSource;
 
+    public GameObject bombParticle;
+    
+    [Header("Ballista Arrow")]
+    public bool isBallistaArrow = false;
+
     void Awake()
     {
         GetComponent<Collider>().isTrigger = true;
@@ -39,8 +44,9 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (isBomb)
+        if (isBomb || isBallistaArrow)
         {
+            Instantiate(bombParticle, transform.position, Quaternion.identity);
             Explode();
         }
         else
@@ -57,6 +63,22 @@ public class Projectile : MonoBehaviour
 
     void Explode()
     {
+        if (isBallistaArrow)
+        {
+            Collider[] hitColliderss = Physics.OverlapSphere(transform.position, explosionRadius);
+            foreach (Collider hit in hitColliderss)
+            {
+                Enemy enemy = hit.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
+            }
+            // Визуальные/звуковые эффекты взрыва можно здесь вызвать
+            audioSource.PlayOneShot(bombSound);
+            Destroy(gameObject);
+            return;
+        }
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider hit in hitColliders)
         {

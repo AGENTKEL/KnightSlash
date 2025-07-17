@@ -8,5 +8,12 @@ namespace YG
         public bool hasSword = false;
         public bool hasBomb = false;
         public bool hasAxe = false;
+        
+        public bool equipedGun = false;
+        public bool equipedSword = false;
+        public bool equipedBomb = false;
+        public bool equipedAxe = false;
+
+        public bool firstGame = false;
     }
 }

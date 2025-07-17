@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public bool hasSword => YG2.saves.hasSword;
     public bool hasBomb => YG2.saves.hasBomb;
     public bool hasAxe => YG2.saves.hasAxe;
+    
+    private bool gameStarted = false;
+    public bool firstGameStart = true;
+
+    public bool IsGameStarted => gameStarted;
 
     public int GetCoinCount() => coins;
 
@@ -48,6 +53,16 @@ public class GameManager : MonoBehaviour
         {
             YG2.saves.coins -= amount;
             YG2.SaveProgress();
+            return true;
+        }
+        return false;
+    }
+    
+    public bool SpendCoinsGameplay(int amount)
+    {
+        if (coins >= amount)
+        {
+            coins -= amount;
             return true;
         }
         return false;

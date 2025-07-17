@@ -18,6 +18,7 @@ public class PlayerAutoattack : MonoBehaviour
     public float gunCooldown = 0.25f;
     
     [Header("Sword Attack Settings")]
+    public AudioClip swordClip;
     public float swordRange = 2f;
     public float swordCooldown = 0.6f;
     public int swordDamage = 15;
@@ -55,26 +56,25 @@ public class PlayerAutoattack : MonoBehaviour
         {
             LookAtTarget(currentTarget.transform);
 
-            if (YG2.saves.hasSword && swordAttackTimer <= 0f && Vector3.Distance(transform.position, currentTarget.transform.position) <= swordRange)
+            if (YG2.saves.equipedSword || YG2.saves.equipedAxe && swordAttackTimer <= 0f && Vector3.Distance(transform.position, currentTarget.transform.position) <= swordRange)
             {
-                MeleeAttack(currentTarget);
+                MeleeAttack();
                 swordAttackTimer = swordCooldown;
-                return; // при активном мече, не стреляем
             }
 
-            if (baseAttackTimer <= 0f)
+            if (baseAttackTimer <= 0f && !YG2.saves.equipedBomb && !YG2.saves.equipedGun && !YG2.saves.equipedSword && !YG2.saves.equipedAxe)
             {
                 ShootProjectileNormal();
                 baseAttackTimer = baseCooldown;
             }
 
-            if (YG.YG2.saves.hasGun && gunAttackTimer <= 0f)
+            if (YG2.saves.equipedGun && gunAttackTimer <= 0f)
             {
                 ShootProjectileGun();
                 gunAttackTimer = gunCooldown;
             }
             
-            if (YG.YG2.saves.hasBomb && bombAttackTimer <= 0f)
+            if (YG2.saves.equipedBomb && bombAttackTimer <= 0f)
             {
                 ShootProjectileBomb();
                 bombAttackTimer = bombCooldown;
@@ -202,16 +202,23 @@ public class PlayerAutoattack : MonoBehaviour
         return Quaternion.Euler(euler);
     }
     
-    void MeleeAttack(Enemy enemy)
+    
+    void MeleeAttack()
     {
         if (animator != null)
         {
             animator.SetTrigger("Attack");
+            audioSource.PlayOneShot(swordClip);
         }
 
-        if (enemy != null)
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, swordRange);
+        foreach (var hitCollider in hitColliders)
         {
-            enemy.TakeDamage(swordDamage);
+            Enemy enemy = hitCollider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(swordDamage);
+            }
         }
     }
 }

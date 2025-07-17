@@ -41,4 +41,9 @@ public class MenuUI : MonoBehaviour
         YG2.SwitchLanguage(language);
     }
     
+    public void OpenURLTelegram()
+    {
+        Application.OpenURL("https://t.me/Samurai_Ronin_777");
+    }
+    
 }

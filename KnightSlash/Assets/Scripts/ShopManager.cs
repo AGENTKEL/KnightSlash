@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using YG;
 
 public class ShopManager : MonoBehaviour
@@ -12,6 +13,11 @@ public class ShopManager : MonoBehaviour
     public GameObject swordButton;
     public GameObject bombButton;
     public GameObject axeButton;
+    
+    public Button gunButtonEquip;
+    public Button swordButtonEquip;
+    public Button bombButtonEquip;
+    public Button axeButtonEquip;
 
     [SerializeField] private MenuUI menuUI;
     
@@ -27,6 +33,8 @@ public class ShopManager : MonoBehaviour
             YG2.saves.hasGun = true;
             YG2.SaveProgress();
             gunButton.SetActive(false);
+            gunButtonEquip.interactable = true;
+            EquipOnly("Gun");
             menuUI.UpdateCoinUI();
             Debug.Log("Gun purchased!");
         }
@@ -43,6 +51,8 @@ public class ShopManager : MonoBehaviour
             YG2.saves.hasSword = true;
             YG2.SaveProgress();
             swordButton.SetActive(false);
+            swordButtonEquip.interactable = true;
+            EquipOnly("Sword");
             menuUI.UpdateCoinUI();
             Debug.Log("Sword purchased!");
         }
@@ -59,6 +69,8 @@ public class ShopManager : MonoBehaviour
             YG2.saves.hasBomb = true;
             YG2.SaveProgress();
             bombButton.SetActive(false);
+            bombButtonEquip.interactable = true;
+            EquipOnly("Bomb");
             menuUI.UpdateCoinUI();
             Debug.Log("Bomb purchased!");
         }
@@ -75,6 +87,8 @@ public class ShopManager : MonoBehaviour
             YG2.saves.hasAxe = true;
             YG2.SaveProgress();
             axeButton.SetActive(false);
+            axeButtonEquip.interactable = true;
+            EquipOnly("Axe");
             menuUI.UpdateCoinUI();
             Debug.Log("Axe purchased!");
         }
@@ -87,15 +101,36 @@ public class ShopManager : MonoBehaviour
     public void CheckPurchasedItems()
     {
         if (YG2.saves.hasGun)
+        {
             gunButton.SetActive(false);
+            gunButtonEquip.interactable = true;
+        }
 
         if (YG2.saves.hasSword)
+        {
             swordButton.SetActive(false);
+            swordButtonEquip.interactable = true;
+        }
 
         if (YG2.saves.hasBomb)
+        {
             bombButton.SetActive(false);
+            bombButtonEquip.interactable = true;
+        }
 
         if (YG2.saves.hasAxe)
+        {
             axeButton.SetActive(false);
+            axeButtonEquip.interactable = true;
+        }
+    }
+    
+    public void EquipOnly(string itemName)
+    {
+        YG2.saves.equipedGun = itemName == "Gun";
+        YG2.saves.equipedSword = itemName == "Sword";
+        YG2.saves.equipedBomb = itemName == "Bomb";
+        YG2.saves.equipedAxe = itemName == "Axe";
+        YG2.SaveProgress();
     }
 }

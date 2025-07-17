@@ -16,14 +16,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<GameObject> playerModels; // список всех моделей
     private int activePlayerCount = 0;
 
-    public TextMeshProUGUI multiplyPrice;
+    public AudioSource playerAudioSource;
+    public AudioClip spawnClip;
+    public AudioClip multiplyClip;
+    public AudioClip deathClip;
+    public AudioClip ballistaClip;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         animator = GetComponentInChildren<Animator>();
-
+        PlaySpawnSound();
         SetActivePlayers(activePlayerCount); // Активировать только одну модель в начале
     }
 
@@ -57,18 +61,33 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Multy"))
         {
-            int cost = (activePlayerCount + 1) * 100;
 
-            if (GameManager.instance.coins >= cost && activePlayerCount < playerModels.Count)
+            if (GameManager.instance.coins >= 200 && activePlayerCount < playerModels.Count)
             {
-                GameManager.instance.SpendCoins(cost);
-                multiplyPrice.text = cost.ToString();
+                GameManager.instance.SpendCoinsGameplay(200);
                 activePlayerCount++;
+                playerAudioSource.PlayOneShot(multiplyClip);
                 SetActivePlayers(activePlayerCount);
+                other.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("Not enough coins or max players reached.");
+            }
+        }
+        
+        if (other.CompareTag("Ballista"))
+        {
+
+            if (GameManager.instance.coins >= 300)
+            {
+                GameManager.instance.SpendCoinsGameplay(300);
+                playerAudioSource.PlayOneShot(ballistaClip);
+                other.GetComponent<Multiply>().BuyBallista();
+            }
+            else
+            {
+                Debug.Log("Not enough coins for ballista.");
             }
         }
     }
@@ -85,7 +104,15 @@ public class PlayerMovement : MonoBehaviour
     {
         activePlayerCount--;
         SetActivePlayers(activePlayerCount);
-        int cost = activePlayerCount * 100;
-        multiplyPrice.text = cost.ToString();
+    }
+    
+    public void PlaySpawnSound()
+    {
+        playerAudioSource.PlayOneShot(spawnClip);
+    }
+    
+    public void PlayDeathSound()
+    {
+        playerAudioSource.PlayOneShot(deathClip);
     }
 }

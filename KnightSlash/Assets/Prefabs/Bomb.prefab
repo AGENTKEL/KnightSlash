@@ -154,3 +154,5 @@ MonoBehaviour:
   isBomb: 1
   explosionRadius: 3
   bombSound: {fileID: 8300000, guid: 6a8d22064f2f89b41b843a3064c052a7, type: 3}
+  bombParticle: {fileID: 1800350186836328457, guid: 7c64b1288363ad2479a94fba05144d4a, type: 3}
+  isBallistaArrow: 0

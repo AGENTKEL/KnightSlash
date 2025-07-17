@@ -1909,9 +1909,9 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   moveSpeed: 2.5
-  attackRange: 5
+  attackRange: 3
   attackCooldown: 2
-  damage: 100
+  damage: 50
   audioSource: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 1c0d2c354fdfe654389460bdb3eaac80, type: 3}
 --- !u!136 &8183188991302367181
