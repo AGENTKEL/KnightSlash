@@ -1,0 +1,8 @@
+RewardedAdv v1.001
+Authorization v1.022
+Localization v1.001
+InterstitialAdv v1.003
+Payments v1.01
+AutoTranslateLangs v1.002
+Storage v1.02
+EnvirData v1.0031

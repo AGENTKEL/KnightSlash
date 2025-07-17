@@ -1,0 +1,301 @@
+fileFormatVersion: 2
+guid: 34410b30766604d8285657084f3a7711
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sword Run Back
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Sword Run Forward(Clone)
+      parentName: 
+      position: {x: -0.089563206, y: -0.030408325, z: -0.26011834}
+      rotation: {x: 0.17223582, y: 0.22105803, z: -0.022368122, w: 0.9596707}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Meshtint_Free_Knight_1
+      parentName: Sword Run Forward(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig
+      parentName: Sword Run Forward(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLPlatform
+      parentName: Sword Run Forward(Clone)
+      position: {x: -0.127832, y: 0.001126, z: 0.138837}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigPelvis
+      parentName: Sword Run Forward(Clone)
+      position: {x: 0.0019988343, y: 0.8672625, z: -0.02744639}
+      rotation: {x: 0.40911666, y: -0.67875004, z: -0.3086464, w: 0.5259841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLThigh
+      parentName: RigPelvis
+      position: {x: 0.084117, y: 0.00078299997, z: 0.11447699}
+      rotation: {x: -0.020281522, y: 0.99331385, z: 0.10724698, w: 0.03760719}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLCalf
+      parentName: RigLThigh
+      position: {x: -0.328991, y: 0.0000069999996, z: 0}
+      rotation: {x: 0.009838958, y: 0.049490817, z: 0.29862756, w: 0.9530349}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLFoot
+      parentName: RigLCalf
+      position: {x: -0.282903, y: 0, z: 0}
+      rotation: {x: -0.9100363, y: 0.26435035, z: -0.08495051, w: 0.30779257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLToe11
+      parentName: RigLFoot
+      position: {x: -0.17865801, y: 0.000039, z: -0.000040000003}
+      rotation: {x: -0.075410634, y: -0.015074201, z: -0.3491872, w: 0.9338921}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLToe12
+      parentName: RigLToe11
+      position: {x: -0.091176994, y: 0, z: 0}
+      rotation: {x: 0.0014956443, y: -0.018634092, z: 0.9985954, w: -0.0495764}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRThigh
+      parentName: RigPelvis
+      position: {x: 0.084117, y: 0.00078299997, z: -0.11447699}
+      rotation: {x: -0.04628153, y: 0.99792814, z: 0.014560565, w: -0.042256176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRCalf
+      parentName: RigRThigh
+      position: {x: -0.328991, y: 0.0000069999996, z: 0}
+      rotation: {x: -0.052206725, y: 0.06973001, z: 0.33416083, w: 0.93848217}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRFoot
+      parentName: RigRCalf
+      position: {x: -0.282904, y: 0, z: 0}
+      rotation: {x: 0.038347322, y: -0.086272635, z: -0.75477105, w: 0.6491589}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRToe11
+      parentName: RigRFoot
+      position: {x: -0.17865801, y: 0.000039, z: 0.000040000003}
+      rotation: {x: 0.03392108, y: 0.01766829, z: -0.40755802, w: 0.9123781}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRToe12
+      parentName: RigRToe11
+      position: {x: -0.091176994, y: 0, z: 0}
+      rotation: {x: -0.0014964995, y: 0.018634137, z: 0.99859536, w: -0.04957726}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigSpine1
+      parentName: RigPelvis
+      position: {x: -0.030043, y: -0.0027990001, z: 0}
+      rotation: {x: 0.012856184, y: 0.019616194, z: 0.0014892871, w: 0.99972385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigSpine2
+      parentName: RigSpine1
+      position: {x: -0.146835, y: 0, z: 0}
+      rotation: {x: 0.02752991, y: 0.031755287, z: -0.071153335, w: 0.99657965}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigSpine3
+      parentName: RigSpine2
+      position: {x: -0.118503, y: 0, z: 0}
+      rotation: {x: 0.025560174, y: 0.03336133, z: -0.13782206, w: 0.98956496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRibcage
+      parentName: RigSpine3
+      position: {x: -0.268302, y: 0, z: 0}
+      rotation: {x: 0.024132472, y: 0.034408104, z: -0.05284945, w: 0.99771774}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLCollarbone
+      parentName: RigRibcage
+      position: {x: -0.010001, y: 0.003105, z: 0.100604996}
+      rotation: {x: 0.04978286, y: 0.7553489, z: 0.032391187, w: 0.6526259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLUpperarm
+      parentName: RigLCollarbone
+      position: {x: -0.27927798, y: 0, z: 0}
+      rotation: {x: 0.026353957, y: -0.13358375, z: -0.019560028, w: 0.990494}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLForearm
+      parentName: RigLUpperarm
+      position: {x: -0.24417199, y: 0, z: -0.000001}
+      rotation: {x: -0.150326, y: -0.02358304, z: -0.01885363, w: 0.9881754}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLPalm
+      parentName: RigLForearm
+      position: {x: -0.354432, y: 0, z: 0.000001}
+      rotation: {x: -0.64922017, y: 0.26832068, z: -0.08641197, w: 0.7064349}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Shield
+      parentName: RigLPalm
+      position: {x: -0.060999997, y: 0.009, z: -0.016}
+      rotation: {x: -0.0036573778, y: -0.0020766337, z: -0.8135537, w: 0.5814746}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigNeck
+      parentName: RigRibcage
+      position: {x: 0.004544, y: 0.029421, z: 0}
+      rotation: {x: 0.0041042804, y: -0.010792523, z: -0.04307357, w: 0.99900514}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigHead
+      parentName: RigNeck
+      position: {x: -0.070585996, y: 0, z: 0}
+      rotation: {x: 0.004549066, y: -0.0048117996, z: 0.121224456, w: 0.99260306}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigHeadBone001
+      parentName: RigHead
+      position: {x: -0.239316, y: -0.046192, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRCollarbone
+      parentName: RigRibcage
+      position: {x: -0.010001, y: 0.003105, z: -0.100604996}
+      rotation: {x: 0.10784686, y: -0.79947305, z: -0.056930937, w: 0.58819276}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRUpperarm
+      parentName: RigRCollarbone
+      position: {x: -0.27927798, y: 0, z: 0}
+      rotation: {x: 0.21555763, y: 0.0733323, z: 0.057991594, w: 0.9720053}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRForearm
+      parentName: RigRUpperarm
+      position: {x: -0.24417199, y: 0, z: -0.000001}
+      rotation: {x: 0.1356871, y: 0.013790662, z: -0.0040400685, w: 0.99064755}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRPalm
+      parentName: RigRForearm
+      position: {x: -0.35443297, y: 0, z: 0.000001}
+      rotation: {x: 0.6689718, y: -0.27544147, z: 0.101317555, w: 0.6828935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:Sword
+      parentName: RigRPalm
+      position: {x: -0.07, y: -0.105, z: 0.024999999}
+      rotation: {x: -0.45022756, y: -0.41745567, z: 0.57880116, w: 0.53667045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRPlatform
+      parentName: Sword Run Forward(Clone)
+      position: {x: 0.127832, y: 0.001125, z: 0.138837}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: cddd7c33ea3374791b68e1a19d0577ed, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
