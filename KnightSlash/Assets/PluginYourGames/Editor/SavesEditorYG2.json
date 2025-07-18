@@ -1,0 +1,21 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 1,
+    "coins": 0,
+    "hasGun": false,
+    "hasSword": false,
+    "hasBomb": false,
+    "hasAxe": false,
+    "equipedGun": false,
+    "equipedSword": false,
+    "equipedBomb": false,
+    "equipedAxe": false,
+    "firstGame": true
+}

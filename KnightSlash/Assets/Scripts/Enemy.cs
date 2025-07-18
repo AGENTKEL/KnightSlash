@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,7 +11,9 @@ public class Enemy : MonoBehaviour
     public float attackCooldown = 1.5f;
     public int damage = 10;
 
-    private Transform player;
+    private Transform currentTarget;
+    private PlayerHealth playerHealth;
+    private BallistaHealth ballistaHealth;
     private Animator animator;
     private float attackTimer = 0f;
 
@@ -19,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        FindTarget();
         audioSource = FindAnyObjectByType<EnemyAudio>().GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -29,19 +32,25 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         attackTimer = 0f;
+        FindTarget();
+        StartCoroutine(FindNewObject());
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (currentTarget == null)
+        {
+            FindTarget();
+            return;
+        }
 
         attackTimer -= Time.deltaTime;
 
-        float distance = Vector3.Distance(transform.position, player.position);
+        float distance = Vector3.Distance(transform.position, currentTarget.position);
 
         if (distance > attackRange)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
+            Vector3 direction = (currentTarget.position - transform.position).normalized;
             direction.y = 0f;
             transform.position += direction * moveSpeed * Time.deltaTime;
             transform.forward = direction;
@@ -51,10 +60,52 @@ public class Enemy : MonoBehaviour
             if (attackTimer <= 0f)
             {
                 animator.SetTrigger("Attack");
-                DealDamageToPlayer();
+                DealDamage();
                 attackTimer = attackCooldown;
             }
         }
+    }
+    
+    void FindTarget()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] ballistas = GameObject.FindGameObjectsWithTag("Ballista_Bot");
+
+        Transform nearest = null;
+        float minDist = Mathf.Infinity;
+
+        if (playerObj != null)
+        {
+            float dist = Vector3.Distance(transform.position, playerObj.transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                nearest = playerObj.transform;
+                playerHealth = playerObj.GetComponent<PlayerHealth>();
+                ballistaHealth = null;
+            }
+        }
+
+        foreach (GameObject b in ballistas)
+        {
+            float dist = Vector3.Distance(transform.position, b.transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                nearest = b.transform;
+                ballistaHealth = b.GetComponent<BallistaHealth>();
+                playerHealth = null;
+            }
+        }
+
+        currentTarget = nearest;
+    }
+
+    private IEnumerator FindNewObject()
+    {
+        yield return new WaitForSeconds(2f);
+        FindTarget();
+        StartCoroutine(FindNewObject());
     }
 
     public void TakeDamage(int amount)
@@ -67,12 +118,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void DealDamageToPlayer()
+    void DealDamage()
     {
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(damage);
+        }
+        else if (ballistaHealth != null)
+        {
+            ballistaHealth.TakeDamage(damage);
         }
     }
 
@@ -83,6 +137,11 @@ public class Enemy : MonoBehaviour
         coin.transform.position = transform.position + Vector3.up * 1f;
         coin.transform.rotation = Quaternion.identity;
         coin.SetActive(true);
+        
+        GameObject coin2 = CoinPoolManager.Instance.GetCoin();
+        coin2.transform.position = transform.position + Vector3.up * 1f + Vector3.forward * 1f;
+        coin2.transform.rotation = Quaternion.identity;
+        coin2.SetActive(true);
         
         gameObject.SetActive(false);
     }

@@ -73,9 +73,11 @@ GameObject:
   - component: {fileID: 1133095094894620411}
   - component: {fileID: 2010248306017895512}
   - component: {fileID: 4396272017677716214}
+  - component: {fileID: 4291984371720134985}
+  - component: {fileID: 6272668726417137034}
   m_Layer: 0
   m_Name: Balista
-  m_TagString: Untagged
+  m_TagString: Ballista_Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +92,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.724, y: 0, z: 0.608}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6238586000688166132}
@@ -144,6 +146,41 @@ MonoBehaviour:
   audioSource: {fileID: 5142020409115981233}
   animator: {fileID: 2010248306017895512}
   shootDelay: 0.6
+--- !u!114 &4291984371720134985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551977478614267484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0c149db15044742bc086efdc51368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  animator: {fileID: 0}
+--- !u!65 &6272668726417137034
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551977478614267484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.97, y: 1.42, z: 2.66}
+  m_Center: {x: 0, y: 0.64, z: 0.19}
 --- !u!1 &2103837851287100620
 GameObject:
   m_ObjectHideFlags: 0

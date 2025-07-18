@@ -1909,7 +1909,7 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   moveSpeed: 2.5
-  attackRange: 3
+  attackRange: 4
   attackCooldown: 2
   damage: 50
   audioSource: {fileID: 0}
@@ -1933,7 +1933,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.015
+  m_Radius: 0.01
   m_Height: 0.06
   m_Direction: 1
   m_Center: {x: 0, y: 0.02, z: 0}

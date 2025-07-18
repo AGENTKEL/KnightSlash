@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("HP Settings")]
     public int maxHealth = 100;
-    [SerializeField] private int currentHealth;
+    public int currentHealth;
 
     [Header("UI")]
     [SerializeField] private Image healthFillImage;

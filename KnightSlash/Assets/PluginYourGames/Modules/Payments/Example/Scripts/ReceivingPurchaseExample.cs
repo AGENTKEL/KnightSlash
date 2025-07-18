@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -6,10 +7,12 @@ namespace YG.Example
 {
     public class ReceivingPurchaseExample : MonoBehaviour
     {
-        public Text textExample;
+        public GameObject purchaseSuccess;
+        public GameObject purchaseFail;
+        public MenuUI menuUI;
 
-        // Пример Unity событий, на которые можно подписать,
-        // например, открытие уведомление о успешности совершения покупки
+        // РџСЂРёРјРµСЂ Unity СЃРѕР±С‹С‚РёР№, РЅР° РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РїРѕРґРїРёСЃР°С‚СЊ,
+        // РЅР°РїСЂРёРјРµСЂ, РѕС‚РєСЂС‹С‚РёРµ СѓРІРµРґРѕРјР»РµРЅРёРµ Рѕ СѓСЃРїРµС€РЅРѕСЃС‚Рё СЃРѕРІРµСЂС€РµРЅРёСЏ РїРѕРєСѓРїРєРё
         public UnityEvent successPurchased;
         public UnityEvent failedPurchased;
 
@@ -29,26 +32,35 @@ namespace YG.Example
         {
             successPurchased?.Invoke();
 
-            textExample.text = "Success purchase - " + id;
+            purchaseSuccess.SetActive(true);
 
-            // Ваш код для обработки покупки. Например:
+            // Р’Р°С€ РєРѕРґ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё РїРѕРєСѓРїРєРё. РќР°РїСЂРёРјРµСЂ:
 
-            //string coinsKey = "coins";
-            //int coins = YG2.GetState(coinsKey);
-
-            //if (id == "50")
-            //    YG2.SetState(coinsKey, coins + 50);
-            //else if (id == "250")
-            //    YG2.SetState(coinsKey, coins + 250);
-            //else if (id == "1500")
-            //    YG2.SetState(coinsKey, coins + 1500);
+            if (id == "coin500")
+                YG2.saves.coins += 500;
+            else if (id == "coin1000")
+                YG2.saves.coins += 1000;
+            else if (id == "coin5000")
+                YG2.saves.coins += 5000;
+            else if (id == "coin10000")
+                YG2.saves.coins += 10000;
+            else if (id == "coin50000")
+                YG2.saves.coins += 50000;
+            else if (id == "coin100000")
+                YG2.saves.coins += 100000;
+            else if (id == "coin500000")
+                YG2.saves.coins += 500000;
+            else if (id == "coin1000000")
+                YG2.saves.coins += 1000000;
+            YG2.SaveProgress();
+            menuUI.UpdateCoinUI();
         }
 
         private void FailedPurchased(string id)
         {
             failedPurchased?.Invoke();
 
-            textExample.text = "Failed purchase - " + id;
+            purchaseFail.SetActive(true);
         }
     }
 }

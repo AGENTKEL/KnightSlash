@@ -106,6 +106,7 @@ MonoBehaviour:
   isBomb: 1
   explosionRadius: 4
   bombSound: {fileID: 0}
+  bombParticle: {fileID: 1800350186836328457, guid: 7c64b1288363ad2479a94fba05144d4a, type: 3}
   isBallistaArrow: 1
 --- !u!65 &6228390665427004761
 BoxCollider:

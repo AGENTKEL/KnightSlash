@@ -15,8 +15,11 @@ public class GameUI : MonoBehaviour
 
     [Header("Game Over UI")]
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameWinPanel;
     [SerializeField] private TextMeshProUGUI finalCoinText;
     [SerializeField] private TextMeshProUGUI finalWaveText;
+    [SerializeField] private TextMeshProUGUI finalCoinText2;
+    [SerializeField] private TextMeshProUGUI finalWaveText2;
     
     public Slider musicSlider;
 
@@ -61,21 +64,35 @@ public class GameUI : MonoBehaviour
     public void ShowGameOverUI()
     {
         gameOverPanel.SetActive(true);
-        finalCoinText.text = $"{GameManager.instance.GetCoinCount()}";
+        finalCoinText.text = $"{700}";
         finalWaveText.text = $"{EnemyWaveSpawner.Instance.waveCount}";
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        GameManager.instance.SaveCoins();
+        SceneManager.LoadScene("Menu");
+    }
+    
+    public void GoToMainMenuLose()
+    {
+        Time.timeScale = 1f;
+        YG2.saves.coins += 700;
+        YG2.SaveProgress();
+        SceneManager.LoadScene("Menu");
+    }
+    
+    public void GoToMainMenuWin()
+    {
+        Time.timeScale = 1f;
+        YG2.saves.coins += 1500;
+        YG2.SaveProgress();
         SceneManager.LoadScene("Menu");
     }
     
     public void NewGame()
     {
         Time.timeScale = 1f;
-        GameManager.instance.SaveCoins();
         SceneManager.LoadScene("Main");
     }
     
@@ -125,5 +142,13 @@ public class GameUI : MonoBehaviour
         {
             MusicManager.Instance.SetVolume(volume);
         }
+    }
+
+    public void GameWin()
+    {
+        gameWinPanel.SetActive(true);
+        finalCoinText2.text = $"{"1500"}";
+        finalWaveText2.text = $"{EnemyWaveSpawner.Instance.waveCount}";
+        Time.timeScale = 0f;
     }
 }

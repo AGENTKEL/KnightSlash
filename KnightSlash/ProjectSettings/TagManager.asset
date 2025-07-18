@@ -9,6 +9,7 @@ TagManager:
   - Music
   - Multy
   - Ballista
+  - Ballista_Bot
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Projectile
   - Enemy
-  - 
+  - Map
   - 
   - 
   - 

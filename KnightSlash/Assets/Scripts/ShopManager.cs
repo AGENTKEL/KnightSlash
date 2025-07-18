@@ -133,4 +133,30 @@ public class ShopManager : MonoBehaviour
         YG2.saves.equipedAxe = itemName == "Axe";
         YG2.SaveProgress();
     }
+
+    public void MyRewardAdvShow(string id)
+    {
+        YG2.RewardedAdvShow(id);
+    }
+    
+    private void OnReward(string id)
+    {
+        if (id == "coin100")
+        {
+            YG2.saves.coins += 200;
+            YG2.SaveProgress();
+            menuUI.UpdateCoinUI();
+        }
+    }
+    
+    private void OnEnable()
+    {
+        YG2.onRewardAdv += OnReward;
+        menuUI.UpdateCoinUI();
+    }
+    
+    private void OnDisable()
+    {
+        YG2.onRewardAdv -= OnReward;
+    }
 }

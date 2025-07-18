@@ -147,21 +147,75 @@ MonoBehaviour:
     durationPayPanel: 1
     testBuyFail: 0
     purshases:
-    - id: coin100
-      title: 100 Coins
-      description: 100 Coins
-      imageURI: demo image
-      price: 5 YAN
-      priceValue: 5
+    - id: coin500
+      title: 500
+      description: 500 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/1890793/2a000001981c82d4bef6a964cc428f5f3129//default87x87
+      price: 199 YAN
+      priceValue: 199
       priceCurrencyCode: YAN
       currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
       consumed: 1
-    - id: coin500
-      title: 500 Coins
-      description: 500 Coins
-      imageURI: demo image
-      price: 5 YAN
-      priceValue: 5
+    - id: coin1000
+      title: 1000
+      description: 1000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/6238841/2a000001981e24388f34ed5c4678c6740764//default87x87
+      price: 349 YAN
+      priceValue: 349
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin5000
+      title: 5000
+      description: 5000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/1881364/2a000001981e25323841cbf90b3f123d6ce3//default87x87
+      price: 1499 YAN
+      priceValue: 1499
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin10000
+      title: 10000
+      description: 10000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/6238841/2a000001981e2715f262169aa2d8959c778a//default87x87
+      price: 2499 YAN
+      priceValue: 2499
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin50000
+      title: 50000
+      description: 50000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/1892995/2a000001981e276942a8839f0726f065ab29//default87x87
+      price: 9999 YAN
+      priceValue: 9999
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin100000
+      title: 100000
+      description: 100000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/1892995/2a000001981e288fe3ab826330451c199d80//default87x87
+      price: 17999 YAN
+      priceValue: 17999
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin500000
+      title: 500000
+      description: 500000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/3006389/2a000001981e29b5e024dc868dd53d29b56f//default87x87
+      price: 69999 YAN
+      priceValue: 69999
+      priceCurrencyCode: YAN
+      currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+      consumed: 1
+    - id: coin1000000
+      title: 1000000
+      description: 1000000 Coins
+      imageURI: https://avatars.mds.yandex.net/get-games/6238841/2a000001981e2ab2f6c6baf8fea793733b90//default87x87
+      price: 119999 YAN
+      priceValue: 119999
       priceCurrencyCode: YAN
       currencyImageURL: https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
       consumed: 1
@@ -174,8 +228,8 @@ MonoBehaviour:
     saveCloud: 1
     flush: 0
   Basic:
-    platform: {fileID: 11400000, guid: c2a303d33a9fd394bae4c4b88b9a1c44, type: 2}
-    autoApplySettings: 1
+    platform: {fileID: 0}
+    autoApplySettings: 0
     autoPauseGame: 1
     editEventSystem: 1
     autoGRA: 1

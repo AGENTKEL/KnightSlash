@@ -15,6 +15,9 @@ public class EnemyWaveSpawner : MonoBehaviour
     
     public PlayerHealth playerHealth;
 
+    public GameUI gameUI;
+    public AudioClip winClip;
+    public AudioSource winAudioSource;
     private void Awake()
     {
         Instance = this;
@@ -23,6 +26,11 @@ public class EnemyWaveSpawner : MonoBehaviour
     void Update()
     {
         if (playerHealth.isDead) return;
+        if (waveCount > 118)
+        {
+
+            return;
+        }
         timer += Time.deltaTime;
         if (timer >= timeBetweenWaves && waveCount < 177)
         {
@@ -34,6 +42,13 @@ public class EnemyWaveSpawner : MonoBehaviour
     void SpawnWave()
     {
         waveCount++;
+        if (waveCount == 117)
+        {
+            gameUI.GameWin();
+            winAudioSource.PlayOneShot(winClip);
+            
+            return;
+        }
         Debug.Log($"Wave {waveCount}");
 
         // Скелеты на всех волнах

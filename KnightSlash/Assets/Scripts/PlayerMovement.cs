@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.instance.SpendCoinsGameplay(200);
                 activePlayerCount++;
+                playerHealth.currentHealth += 50;
                 playerAudioSource.PlayOneShot(multiplyClip);
                 SetActivePlayers(activePlayerCount);
                 other.gameObject.SetActive(false);

@@ -2,22 +2,48 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;      // Ссылка на игрока
+    public Transform target; // Ссылка на игрока
     public Vector3 offset = new Vector3(0, 15, -10); // Смещение камеры
     public float followSpeed = 5f;
+    public float minDistance = 3f; // минимальное приближение камеры
+    public float maxDistance = 10f; // максимальная дистанция (исходная)
+    public LayerMask obstacleLayer; // тут установить слой "Map"
+
+    private float currentDistance;
+
+    void Start()
+    {
+        currentDistance = offset.magnitude;
+    }
 
     void LateUpdate()
     {
         if (target == null) return;
 
-        // Следим только по X и Z, Y остаётся фиксированным (высота камеры)
-        Vector3 targetPosition = new Vector3(target.position.x, 0f, target.position.z) + offset;
-        Vector3 currentPosition = transform.position;
+        Vector3 direction = offset.normalized;
+        Vector3 desiredCameraPos = target.position + direction * currentDistance;
+        Vector3 lookDir = desiredCameraPos - target.position;
 
-        // Y остаётся тем, что было задано в offset
+        // Проверка на препятствия между камерой и игроком
+        if (Physics.Raycast(target.position, direction, out RaycastHit hit, maxDistance, obstacleLayer))
+        {
+            // Приближаем камеру к точке перед препятствием
+            currentDistance = Mathf.Clamp(hit.distance - 0.5f, minDistance, maxDistance);
+        }
+        else
+        {
+            // Плавно возвращаем к исходной дистанции
+            currentDistance = Mathf.Lerp(currentDistance, maxDistance, Time.deltaTime * followSpeed);
+        }
+
+        // Новая позиция камеры
+        Vector3 targetPosition = target.position + direction * currentDistance;
+
+        // Фиксируем высоту камеры как в offset
         targetPosition.y = offset.y;
 
-        // Плавное следование
-        transform.position = Vector3.Lerp(currentPosition, targetPosition, followSpeed * Time.deltaTime);
+        // Плавное движение
+        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
     }
+
 }
