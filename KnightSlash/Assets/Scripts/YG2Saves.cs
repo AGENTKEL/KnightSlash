@@ -2,7 +2,7 @@ namespace YG
 {
     public partial class SavesYG
     {
-        public int coins = 9999999;
+        public int coins = 0;
         
         public bool hasGun = false;
         public bool hasSword = false;

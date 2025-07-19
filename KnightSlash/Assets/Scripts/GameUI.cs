@@ -71,6 +71,7 @@ public class GameUI : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+        GameManager.instance.coins = 0;
         SceneManager.LoadScene("Menu");
     }
     
@@ -79,6 +80,7 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1f;
         YG2.saves.coins += 700;
         YG2.SaveProgress();
+        GameManager.instance.coins = 0;
         SceneManager.LoadScene("Menu");
     }
     
@@ -87,12 +89,23 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1f;
         YG2.saves.coins += 1500;
         YG2.SaveProgress();
+        GameManager.instance.coins = 0;
         SceneManager.LoadScene("Menu");
     }
     
     public void NewGame()
     {
         Time.timeScale = 1f;
+        YG2.saves.coins += 700;
+        GameManager.instance.coins = 0;
+        SceneManager.LoadScene("Main");
+    }
+    
+    public void NewGameWin()
+    {
+        Time.timeScale = 1f;
+        YG2.saves.coins += 1500;
+        GameManager.instance.coins = 0;
         SceneManager.LoadScene("Main");
     }
     

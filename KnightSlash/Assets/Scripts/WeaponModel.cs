@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using YG;
 
@@ -7,11 +8,13 @@ public class WeaponModel : MonoBehaviour
     public GameObject gunModel;
     public GameObject swordModel;
     public GameObject axeModel;
+    [SerializeField] private Animator animator;
 
-    void Start()
+    private void Awake()
     {
         UpdateWeaponModel();
     }
+    
 
     public void UpdateWeaponModel()
     {
@@ -25,6 +28,7 @@ public class WeaponModel : MonoBehaviour
         if (YG2.saves.equipedGun)
         {
             gunModel.SetActive(true);
+            animator.SetBool("Cross", true);
         }
         else if (YG2.saves.equipedSword)
         {
@@ -37,6 +41,7 @@ public class WeaponModel : MonoBehaviour
         else if (!YG2.saves.equipedAxe && !YG2.saves.equipedSword && !YG2.saves.equipedGun)
         {
             crossModel.SetActive(true);
+            animator.SetBool("Cross", true);
         }
     }
 }

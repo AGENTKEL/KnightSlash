@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.SpendCoinsGameplay(200);
                 activePlayerCount++;
                 playerHealth.currentHealth += 50;
+                playerHealth.UpdateHealthUI();
                 playerAudioSource.PlayOneShot(multiplyClip);
                 SetActivePlayers(activePlayerCount);
                 other.gameObject.SetActive(false);
@@ -80,9 +81,9 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Ballista"))
         {
 
-            if (GameManager.instance.coins >= 300)
+            if (GameManager.instance.coins >= 200)
             {
-                GameManager.instance.SpendCoinsGameplay(300);
+                GameManager.instance.SpendCoinsGameplay(200);
                 playerAudioSource.PlayOneShot(ballistaClip);
                 other.GetComponent<Multiply>().BuyBallista();
             }
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         for (int i = 0; i < playerModels.Count; i++)
         {
             playerModels[i].SetActive(i < count);
+            playerModels[i].GetComponent<WeaponModel>().UpdateWeaponModel();
         }
     }
 

@@ -56,7 +56,13 @@ public class PlayerAutoattack : MonoBehaviour
         {
             LookAtTarget(currentTarget.transform);
 
-            if (YG2.saves.equipedSword || YG2.saves.equipedAxe && swordAttackTimer <= 0f && Vector3.Distance(transform.position, currentTarget.transform.position) <= swordRange)
+            if (YG2.saves.equipedSword && swordAttackTimer <= 0f && Vector3.Distance(transform.position, currentTarget.transform.position) <= swordRange)
+            {
+                MeleeAttack();
+                swordAttackTimer = swordCooldown;
+            }
+            
+            if (YG2.saves.equipedAxe && swordAttackTimer <= 0f && Vector3.Distance(transform.position, currentTarget.transform.position) <= swordRange)
             {
                 MeleeAttack();
                 swordAttackTimer = swordCooldown;

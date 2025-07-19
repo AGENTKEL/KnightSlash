@@ -602,7 +602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 448.2999}
+  m_AnchoredPosition: {x: 0, y: 430}
   m_SizeDelta: {x: 830, y: 349.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74796245
@@ -3696,7 +3696,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2140748787}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: NewGameWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5987,7 +5987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9472,7 +9472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.296
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11878,6 +11878,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 632208411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1080631433 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1564282410028556671, guid: a486ff1705e2370418fd894586dc1d23, type: 3}
+  m_PrefabInstance: {fileID: 7456271729527407241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1088474743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1714837442529873577, guid: d57998b89f1724135a6019a0abe0a0c8, type: 3}
@@ -13387,7 +13392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballistaObject: {fileID: 7770279313538528157}
-  disableObject: {fileID: 742739041}
+  disableObject: {fileID: 933812459}
   collider: {fileID: 1278090910}
 --- !u!65 &1278090910
 BoxCollider:
@@ -20375,7 +20380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballistaObject: {fileID: 826026105}
-  disableObject: {fileID: 1526025393}
+  disableObject: {fileID: 2063125721}
   collider: {fileID: 1801971645}
 --- !u!65 &1801971645
 BoxCollider:
@@ -20683,7 +20688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25835,6 +25840,7 @@ MonoBehaviour:
   gunModel: {fileID: 1301741723}
   swordModel: {fileID: 679851537}
   axeModel: {fileID: 907447126}
+  animator: {fileID: 1080631433}
 --- !u!1 &4127662172277741627
 GameObject:
   m_ObjectHideFlags: 0
@@ -26072,7 +26078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.328
       objectReference: {fileID: 0}
     - target: {fileID: 1133095094894620411, guid: b6287a926c652c34a986ef3c6ee30260, type: 3}
       propertyPath: m_LocalPosition.z

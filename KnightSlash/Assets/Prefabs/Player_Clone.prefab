@@ -1081,6 +1081,7 @@ MonoBehaviour:
   gunModel: {fileID: 8161446874594395837}
   swordModel: {fileID: 4344365906816013590}
   axeModel: {fileID: 6471838450865579064}
+  animator: {fileID: 5140848477485166896}
 --- !u!1 &5739184925212473829
 GameObject:
   m_ObjectHideFlags: 0
